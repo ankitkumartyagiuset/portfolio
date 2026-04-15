@@ -9,7 +9,7 @@ type SkillCardProps = {
 
 export default function SkillCard({ name, proficiency }: SkillCardProps) {
   return (
-    <article className="rounded-2xl border border-slate-200/70 bg-white/70 p-4 shadow-sm backdrop-blur transition-transform duration-300 hover:-translate-y-1 hover:[transform:perspective(900px)_rotateX(4deg)_rotateY(-4deg)] dark:border-slate-800 dark:bg-slate-900/60">
+    <article className="rounded-2xl border border-slate-200/70 bg-white/70 p-4 shadow-sm backdrop-blur transition-transform duration-300 hover:[transform:perspective(900px)_translateY(-4px)_rotateX(4deg)_rotateY(-4deg)] dark:border-slate-800 dark:bg-slate-900/60">
       <div className="mb-3 flex items-center justify-between text-sm font-semibold">
         <span>{name}</span>
         <span>{proficiency}%</span>

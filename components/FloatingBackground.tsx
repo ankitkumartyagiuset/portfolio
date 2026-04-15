@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Float, Icosahedron, MeshDistortMaterial, OrbitControls } from "@react-three/drei";
+import { Float, Icosahedron, MeshDistortMaterial } from "@react-three/drei";
 import { useRef } from "react";
 import type { Group } from "three";
 
@@ -42,10 +42,9 @@ function Scene() {
 
 export default function FloatingBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 opacity-70">
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 opacity-70">
       <Canvas camera={{ position: [0, 0, 6], fov: 50 }} dpr={[1, 2]}>
         <Scene />
-        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.35} />
       </Canvas>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.2),transparent_50%),radial-gradient(circle_at_80%_30%,rgba(139,92,246,0.2),transparent_45%),radial-gradient(circle_at_60%_80%,rgba(34,211,238,0.2),transparent_50%)]" />
     </div>

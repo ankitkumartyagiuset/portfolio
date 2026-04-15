@@ -19,7 +19,7 @@ export default function Navbar() {
           Ankit Tyagi
         </Link>
         <div className="flex items-center gap-4">
-          <ul className="hidden items-center gap-4 text-sm font-medium md:flex">
+          <ul className="flex items-center gap-2 overflow-x-auto text-xs font-medium sm:gap-4 sm:text-sm">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link

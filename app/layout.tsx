@@ -28,10 +28,16 @@ export default function RootLayout({
       <body className="min-h-screen bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100">
         <Script id="theme-init" strategy="beforeInteractive">
           {`(() => {
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const shouldUseDark = savedTheme ? savedTheme === 'dark' : prefersDark;
-  document.documentElement.classList.toggle('dark', shouldUseDark);
+  try {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const shouldUseDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    document.documentElement.classList.toggle('dark', shouldUseDark);
+  } catch (error) {
+    console.warn('Theme initialization fallback triggered', error);
+    const fallbackDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', fallbackDark);
+  }
 })();`}
         </Script>
         <ScrollProgress />
